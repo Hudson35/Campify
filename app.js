@@ -55,6 +55,12 @@ var commentRoutes    = require("./routes/comments"),
 // DATABASE MONGODB ATLAS SETUP END 
 
 
+console.log(process.env.DATABASEURL);
+//Creating a environment variable to help with deployed version of DB and testing version of DB for our application. 
+//url will equal the enviroment variable if it exist, if it doesn't exist it will be local 
+var url = process.env.DATABASEURL || "mongodb://localhost:27017/campifyDevelopment";
+mongoose.connect(url);
+
 
 
 // DATABASE LOCAL SETUP //
@@ -63,7 +69,7 @@ var commentRoutes    = require("./routes/comments"),
 // Connecting to a database and or creating a database if one is not set up yet
 // mongoose.connect('mongodb://localhost:27017/yelp_camp_v2', { useNewUrlParser: true });
 
-console.log(process.env.DATABASEURL);
+// console.log(process.env.DATABASEURL);
 //mongoose.connect('mongodb://localhost:27017/campifyDevelopment', { useNewUrlParser: true });
 
 // END OF LOCAL DATABASE SETUP //
