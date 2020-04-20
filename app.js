@@ -64,7 +64,7 @@ var commentRoutes    = require("./routes/comments"),
 // mongoose.connect('mongodb://localhost:27017/yelp_camp_v2', { useNewUrlParser: true });
 
 console.log(process.env.DATABASEURL);
-mongoose.connect('mongodb://localhost:27017/campifyDevelopment', { useNewUrlParser: true });
+//mongoose.connect('mongodb://localhost:27017/campifyDevelopment', { useNewUrlParser: true });
 
 // END OF LOCAL DATABASE SETUP //
 
