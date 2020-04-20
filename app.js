@@ -42,9 +42,34 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
 
+// DATABASE MONGODB ATLAS SETUP START
+//Connecting to mongodb atlas database and or creating a database if one is not set up yet
+// mongoose.connect("mongodb+srv://devhudson:devhudsonpassword@cluster0-campify-qkat4.mongodb.net/campifyProduction?retryWrites=true&w=majority", { 
+// 	useNewUrlParser: true,
+// 	useCreateIndex: true
+// }).then(() => {
+// 	console.log('Connected to Campify MongoDB Atlas!');
+// }).catch(err => {
+// 	console.log('ERROR:', err.message);
+// });
+// DATABASE MONGODB ATLAS SETUP END 
 
+
+
+
+// DATABASE LOCAL SETUP //
+
+// Use this when Connecting to a database locally and or creating a database if one is not set up yet
 // Connecting to a database and or creating a database if one is not set up yet
-mongoose.connect('mongodb://localhost:27017/yelp_camp_v2', { useNewUrlParser: true });
+// mongoose.connect('mongodb://localhost:27017/yelp_camp_v2', { useNewUrlParser: true });
+
+console.log(process.env.DATABASEURL);
+mongoose.connect('mongodb://localhost:27017/campifyDevelopment', { useNewUrlParser: true });
+
+// END OF LOCAL DATABASE SETUP //
+
+
+
 
 // This line tells Express to use the package body parser just copy and paste this line don't worry about not knowing exactly what it does
 app.use(bodyParser.urlencoded({extended: true}));
@@ -109,7 +134,8 @@ app.use(commentRoutes);
 
 
 
-// This is where the server will start and listen for the specified port number
+// This is where the server will start and listen for the specified port number on whatever environment
+// the code is running on for PORT and IP address. e.g. a heroku or goorm ide environment or a local one, hence the 3000.
 app.listen(process.env.PORT || 3000, process.env.IP, function(){
 	console.log("The Campify Server Has Started!");
 });
