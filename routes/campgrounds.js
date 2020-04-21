@@ -67,6 +67,7 @@ router.post("/campgrounds", middleware.isLoggedIn, function(req, res){
   }
   geocoder.geocode(req.body.location, function (err, data) {
     if (err || !data.length) {
+		console.log(err, "Error occurred.");
       req.flash('error', 'Invalid address ... BATMAN ERROR');
       return res.redirect('back');
     }
