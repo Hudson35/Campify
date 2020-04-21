@@ -67,7 +67,7 @@ router.post("/campgrounds", middleware.isLoggedIn, function(req, res){
   }
   geocoder.geocode(req.body.location, function (err, data) {
     if (err || !data.length) {
-      req.flash('error', 'Invalid address');
+      req.flash('error', 'Invalid address ... BATMAN ERROR');
       return res.redirect('back');
     }
     var lat = data[0].latitude;
@@ -177,7 +177,7 @@ router.get("/campgrounds/:id/edit", middleware.checkCampgroundOwnership, functio
 router.put("/campgrounds/:id", middleware.checkCampgroundOwnership, function(req, res){
   geocoder.geocode(req.body.location, function (err, data) {
     if (err || !data.length) {
-      req.flash('error', 'Invalid address');
+      req.flash('error', 'Invalid address ... SUPERMAN.');
       return res.redirect('back');
     }
     req.body.campground.lat = data[0].latitude;
