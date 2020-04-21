@@ -58,7 +58,8 @@ var commentRoutes    = require("./routes/comments"),
 console.log(process.env.DATABASEURL);
 //Creating a environment variable to help with deployed version of DB and testing version of DB for our application. 
 //url will equal the enviroment variable if it exist, if it doesn't exist it will be local 
-var url = process.env.DATABASEURL || "mongodb://localhost:27017/campifyDevelopment";
+// var url = process.env.DATABASEURL || "mongodb://localhost:27017/campifyDevelopment";
+var url = process.env.DATABASEURL;
 mongoose.connect(url, { useNewUrlParser: true });
 
 
